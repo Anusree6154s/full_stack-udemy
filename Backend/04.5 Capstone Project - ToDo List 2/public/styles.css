@@ -1,0 +1,176 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    min-height: 100vh;
+    min-width: 100vh;
+    margin: 20px;
+
+}
+
+/* Style the app container */
+.centre-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    padding: 20px;
+    flex: 1.5;
+}
+
+/* Style the side panes containers */
+.container1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f4eeee99;
+    border-radius: 28px;
+    padding: 20px;
+    flex: 1;
+    justify-items: end;
+}
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f4eeee99;
+    border-radius: 28px;
+    padding: 20px;
+    flex: 1;
+    /* justify-content: space-between; */
+}
+
+/* Style Side-pane-1 contents */
+/* Style h2 */
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Style lists-li */
+.lists-li {
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* Style images */
+img {
+    width: 10px;
+    height: 10px;
+}
+
+.list-bottom-button-icons{
+    width: 20px;
+    height: 20px;
+}
+
+.placeholder {
+    border: none;
+    font-size: 16px;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* Style buttons */
+button {
+    background-color: rgb(255, 255, 255, 0);
+    border: none;
+    font-size: 16px;
+}
+
+.listsform{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Style bottom-buttons */
+.list-bottom-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Style centre container */
+/* Style the header */
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Style the task list */
+ul {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    flex-grow: 1;
+}
+
+li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+/* Style the task name */
+span {
+    flex-grow: 1;
+    font-size: 18px;
+}
+
+/* Style the done task */
+input[type="checkbox"]:checked+button {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+/* Style Side-pane-2 contents */
+/* Style input boxes */
+.side-panes-form>.form {
+    border: solid rgb(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.side-panes-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#tasks-buttons-box {
+    margin-top: 280px;
+    display: flex;
+    gap: 20px;
+}
+
+.tasks-buttons {
+    border: solid rgb(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    flex: 1;
+
+}
+
+#button-save-changes {
+    color: white;
+    background-color: rgb(255, 170, 182);
+}

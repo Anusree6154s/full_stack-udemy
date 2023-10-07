@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>To-Do List</title>
+</head>
+
+<body>
+    <div id="lists" class="side-panes-container container1">
+        <h2>Lists</h2>
+        <ul>
+            <% for (var i=0; i < lists.length; i++) { %>
+                <li class="lists-li">
+                    <img src="\images\Rectangle 5.png" alt="color box">
+                    <span >
+                        <%= lists[i] %>
+                    </span>
+                </li>
+                <% } %>
+        </ul>
+        <form method="get" class="listsform">
+            <button formaction="/settings" id="settings" class="list-bottom-buttons">
+                <img src="\images/settings.png" alt="settings icon" class="list-bottom-button-icons" />
+                Settings
+            </button>
+            <button formaction="/logout" id="log-out" class="list-bottom-buttons">
+                <img src="\images/log-out.png" alt="log out icon" class="list-bottom-button-icons" />
+                Log Out
+            </button>
+        </form>
+    </div>
+    <div id="centre" class="centre-container">
+        <h1>Today</h1>
+        <ul>
+            <form method="get">
+                <% for (var i=0; i < tasks.length; i++) { %>
+                    <li>
+                        <input type="checkbox" name="taskStatus" value="1" />
+                        <button formaction="/clickTask/<%=i%>" class="done" id="<%=i%>">
+                            <%= tasks[i] %>
+                        </button>
+                    </li>
+                    <% } %>
+            </form>
+        </ul>
+    </div>
+    <div id="tasks" class="side-panes-container container2">
+        <h2>Task</h2>

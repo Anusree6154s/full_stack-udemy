@@ -1,0 +1,21 @@
+/* Write your code here: */
+
+h1, h2{
+    color: blueviolet;
+}
+
+div>p{
+    color: firebrick;
+}
+
+.box ul{
+    color: blue;
+}
+
+li.done{
+    color: seagreen;
+}
+
+ul p.done{
+    font-size: 0.5rem;
+}

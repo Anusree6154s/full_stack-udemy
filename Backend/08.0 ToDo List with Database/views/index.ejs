@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>To-Do List</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1><%=title%></h1>
+      <form action="/add" method="POST" class="addForm" >
+        <input type="text" name="task" placeholder="New task" required />
+        <button type="submit" class="addButton" name="titleName" value="<%=title%>">Add</button>
+      </form>
+      <ul>
+        <% for (var i = 0; i < tasks.length; i++) { %>
+        <li>
+          <label>
+            <input type="checkbox" name="taskStatus" value="1" />
+            <span class="done"><%= tasks[i].name %></span>
+          </label>
+          <form action="/delete/<%=i%>" method="post" ><button class="deleteButton" name="titleName" value="<%=title%>">Delete</button></form>
+
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

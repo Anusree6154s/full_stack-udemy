@@ -1,0 +1,19 @@
+<%- include("partials/header.ejs") %>
+
+        <form method="POST" id="tasks-box" class="side-panes-form">
+            <input type="text" name="task" placeholder="Task" id="input-tasks-box" class="placeholder form" />
+            <input type="text" name="list" placeholder="List" id="input-lists-box" class="placeholder form" />
+            <input type="text" name="description" placeholder="Description" id="input-description-box"
+                class="placeholder form" />
+            <div id="tasks-buttons-box">
+                <button type="submit" formaction="/delete" id="button-delete-task" class="tasks-buttons">Delete
+                    Task</button>
+                <button type="submit" formaction="/save" id="button-save-changes" class="tasks-buttons">Save
+                    Changes</button>
+            </div>
+        </form>
+    
+    </div>
+</body>
+
+</html>

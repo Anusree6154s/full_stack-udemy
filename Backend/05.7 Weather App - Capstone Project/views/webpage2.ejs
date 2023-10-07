@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles/styles2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+
+    <div class="bottom-div">
+      <div class="x1">
+        <div class="cloud"></div>
+      </div>
+
+      <div class="x2">
+        <div class="cloud"></div>
+      </div>
+
+      <div class="x3">
+        <div class="cloud"></div>
+      </div>
+
+      <div class="x4">
+        <div class="cloud"></div>
+      </div>
+
+      <div class="x5">
+        <div class="cloud"></div>
+      </div>
+    </div>
+
+    <!-- partial -->
+
+    <div class="top-div">
+      <div class="child-div a">
+        <h2>Weather Poppy</h2>
+        <span>A Weather Forecast App</span>
+        <div class="child-child-div-a">
+          <form action="/submit" method="post">
+            <p>Enter latitude and logitude:</p>
+            <input type="text" placeholder="Latitude" name="lat">
+            <input type="text" placeholder="Longitutde" name="lon">
+            <button>Check</button>
+          </form>
+        </div>
+      </div>
+      <div class="child-div b">
+        <div class="weather cloud-sun-container">
+          <i class="fas fa-cloud innerCloud"></i>
+          <i class="fas fa-sun sun"></i>
+          <span><%=temp%>°C</span>
+        </div>
+
+        <div class="child-child-div-b">
+          <div class="flex1 flexa">
+            <div class="flexaa">
+              <i class="fas fa-cloud-sun"></i>
+              <i class="fas fa-cloud"></i>
+              <i class="fas fa-wind"></i>
+              <i class="fas fa-cloud-rain"></i>
+            </div>
+            <div class="flexab">
+              <span><%=weather%></span>
+              <span><%= cloud%> okta</span>
+              <span><%=wind%> km/h</span>
+              <span><%=rain%> mm</span>
+            </div>
+          </div>
+
+          <div class="flex2">
+            <span class="place"><%=place%></span>
+            <span class="time"><%=time%></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
