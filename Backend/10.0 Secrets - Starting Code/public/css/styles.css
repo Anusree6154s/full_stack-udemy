@@ -14,3 +14,12 @@ body {
   color: #fff;
   background-color: #000;
 }
+
+.errorMessage{
+  color: red;
+  font-size: 10px;
+}
+
+ul{
+  list-style: none;
+}

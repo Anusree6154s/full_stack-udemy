@@ -1,10 +1,11 @@
 //jshint esversion:6
 
-require('dotenv').config();
+// Level - 1 Authentication
+// Simple if-else for passwords
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const encrypt = require ("mongoose-encryption");
 
 const app = express();
 
@@ -16,15 +17,12 @@ mongoose
   .connect("mongodb://127.0.0.1:27017/userDB")
   .then(console.log("connected locally!"));
 
-// const secretSchema = { secret: String };
-// const Secret = mongoose.model("secret", secretSchema);
-const userSchema = mongoose.Schema ({
+const secretSchema = { name: String };
+const Secret = mongoose.model("secret", secretSchema);
+const userSchema = {
   email: String,
   password: String
-});
-
-// console.log(process.env.API_KEY);
-userSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ["password"]});
+};
 
 const User = mongoose.model("user", userSchema);
 
@@ -33,11 +31,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", {message:""});
 });
 
 app.get("/register", (req, res) => {
-  res.render("register");
+  res.render("register", {message:""});
 });
 
 app.get("/logout", (req, res) => {
@@ -53,8 +51,7 @@ app.post("/register", (req, res) => {
     email: req.body.username,
     password: req.body.password
   }).then(() => {
-    console.log(req.body.username + " " + req.body.password);
-    res.render("secrets");
+    res.render("secrets", { secrets: [{ name: "Jack Bauer is my hero." }] });
   });
 });
 
@@ -69,22 +66,25 @@ app.post("/login", async (req, res) => {
     const data = await User.findOne({ email: username });
     if (data) {
       if (password === data.password) {
-        res.render("secrets");
+        const data = await Secret.find();
+        res.render("secrets", { secrets: data });
       } else {
-        res.send("Wrong Password!");
+        res.redirect("/login");
+        console.log("Wrong Password!");
       }
     } else {
-      res.send("Not a registered user.");
+      res.redirect("/register");
+      console.log("Not a registered user.");
     }
   } catch (error) {
-    res.send(error.message);
+    console.log(error);
   }
 });
-
 app.post("/submit", async (req, res) => {
-  // const secrettext = req.body.secret;
-  // await Secret.create({ secret: secrettext });
-  res.render("secrets");
+  const secret = req.body.secret;
+  await Secret.create({ name: secret });
+  const data = await Secret.find();
+  res.render("secrets", { secrets: data });
 });
 
 app.listen(3000, () => {
