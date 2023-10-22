@@ -1,7 +1,8 @@
 ## Code Files
 Here's the code you provided along with the expected content output:
 
-```index
+**index**
+```
 
 <!DOCTYPE html>
 <html>
@@ -53,7 +54,8 @@ Here's the code you provided along with the expected content output:
 </html>
 ```
 
-```index2
+**index2**
+```
 <!DOCTYPE html>
 <html>
 
@@ -100,9 +102,11 @@ Here's the code you provided along with the expected content output:
 ```
 
 ## Expected output 
-index
-![output](./goal1.png)
+- `index`
 
-index2
+    ![output](./goal1.png)
 
-![output](./goal2.png)
+
+- `index2`
+
+    ![output](./goal2.png)
