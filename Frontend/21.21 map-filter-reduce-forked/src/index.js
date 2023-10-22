@@ -32,7 +32,7 @@
 
 import emojipedia from "./emojipedia";
 
-// const array = emojipedia.map((data) => data.meaning.substring(0, 100)); //write an arroew function like this
+// const array = emojipedia.map((data) => data.meaning.substring(0, 100)); //write an arrow function like this
 const array = emojipedia.map((data) => {
   return data.meaning.substring(0, 100);
 }); // or like this
