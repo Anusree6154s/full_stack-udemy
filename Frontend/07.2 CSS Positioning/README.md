@@ -1,0 +1,46 @@
+## Expected output 
+![output](./goal.png)
+
+## Code Files
+Here's the code you provided along with the expected content output:
+
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CSS Positioning Exercise</title>
+  <style>
+    /* Write your code here */
+
+    .red-circle{
+      background-color: red;
+      width: 200px;
+      height: 200px;
+      border-radius: 100px;
+      position: absolute;
+      top: 150px;
+      left: 250px;
+    }
+
+    .blue-box{
+      background-color: blue;
+      width: 500px;
+      height: 300px;
+      position: relative;
+      top: 200px;
+      left: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blue-box">
+    <div class="red-circle">
+    </div>
+  </div>
+
+</body>
+
+</html>
+```

@@ -1,20 +1,5 @@
 ## Expected output 
-The expected output for the given HTML content is as follows:
-
-- The browser will render the content with the following structure:
-
-1. A level 1 heading (`<h1>`) with the text "William Blake".
-2. A paragraph (`<p>`) containing address information:
-   - "17 south molton street"
-   - "London"
-   - "W1K 5QT"
-   - "UK"
-
-3. A horizontal line (`<hr/>`) for a visual separator.
-
-4. Another paragraph (`<p>`) with a detailed biography and information about William Blake, including his birth and death dates, his contributions to art and poetry, his recognition in the 20th and 21st centuries, and his complex relationship with religion and political ideologies.
-
-This content represents a basic web page with text and structural elements, including headings, paragraphs, and a horizontal line. The biography provides historical and contextual information about William Blake.
+![output](./goal.png)
 
 
 ## Code inside

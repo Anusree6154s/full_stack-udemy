@@ -1,14 +1,6 @@
-## Expected Output
+## output
 
-The expected output for the given HTML content is as follows:
-
-1. The browser will render the first paragraph as formatted text with line breaks and spacing as provided in the HTML. It includes Lorem Ipsum text and descriptive content.
-
-2. The second paragraph is rendered similarly, containing text and descriptive content.
-
-3. The third paragraph is also rendered as formatted text with spacing and line breaks. It includes additional descriptive content.
-
-No headings, hyperlinks, or structured elements like lists or tables are present in this content. It consists of plain paragraphs of text.
+![output](./goal.png)
 
 
 ## File contents

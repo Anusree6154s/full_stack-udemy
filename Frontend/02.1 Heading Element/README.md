@@ -15,12 +15,4 @@
 
 ## output
 
-1. [Chapter 1](#chapter-1)
-   - [Section 1](#section-1)
-   - [Section 2](#section-2)
-2. [Chapter 2](#chapter-2)
-   - [Section 1](#section-1)
-     - [Diagram 1](#diagram-1)
-3. [Chapter 3](#chapter-3)
-   - [Section 1](#section-1)
-   - [Section 2](#section-2)
+![output](./goal.png)
