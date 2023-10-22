@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+// Define variables
 const fName = "Angela";
 const lName = "Yu";
 const num = 7;
+
 ReactDOM.render(
   <div>
     <h1>My Favourite Foods</h1> {/*statement*/}

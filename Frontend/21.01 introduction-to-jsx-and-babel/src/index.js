@@ -9,4 +9,4 @@ ReactDOM.render(
     <p>This is a para</p>
   </div>,
   document.getElementById("root2")
-); //here div is rendered
+); //here div is rendered. so all elements must be encased within a single div in every component
