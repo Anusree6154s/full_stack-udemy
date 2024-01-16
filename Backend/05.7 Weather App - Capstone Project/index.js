@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
+import countries from './country-code.js';
 
 const app = express();
 const port = 3000;
@@ -8,67 +9,48 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/submit", async (req, res) => {
-  const lat = req.body.lat;
-  const lon = req.body.lon;
-  try {
-    const result = await axios.get(
-      `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=d58d8653b1204f6eb276e7215f4545ff`
-    );
-    const weatherDataItem = result.data.data[0]; // Access the first data point
-
-    // Extract the specific data you need
-    const temp = weatherDataItem.app_temp;
-    const weather = weatherDataItem.weather.description;
-    const cloud = weatherDataItem.clouds;
-    const wind = weatherDataItem.wind_spd;
-    const rain = weatherDataItem.precip;
-    const place = weatherDataItem.city_name;
-    const time = weatherDataItem.ob_time;
-
-    res.redirect(
-      `/webpage2?temp=${temp}&weather=${weather}&cloud=${cloud}&wind=${wind}&rain=${rain}&place=${place}&time=${time}`
-    );
-  } catch (error) {
-    console.log(error.message);
-    res.status(404).send("Error fetching weather data.");
-  }
-});
-
-
-app.get("/webpage2", (req, res) => {
-  // Render the new page
-  const temp = req.query.temp;
-  const weather = req.query.weather;
-  const cloud = req.query.cloud;
-  const wind = req.query.wind;
-  const rain = req.query.rain;
-  const place = req.query.place;
-  const time = req.query.time;
-
-  res.render("webpage2.ejs", {
-    temp: temp,
-    weather: weather,
-    cloud: cloud,
-    wind: wind,
-    rain: rain,
-    place: place,
-    time: time,
-  });
-});
-
 app.get("/", (req, res) => {
   res.render("index.ejs");
+});
+
+app.get("/submit", (req, res) => {
+  res.render("index.ejs");
+});
+
+app.post("/submit", async (req, res) => {
+  const city = req.body.city;
+  const country = req.body.country;
+  const date = req.body.date;
+
+  //find countrycode
+  const foundCountry = countries.find(item => item.country == country)
+  const code = foundCountry.code
+
+  //enter city and countrycode using geocoder
+  const response = await axios.get(
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city},${code}&appid=843d37c1dd0d39ffe4b87de9a2ebdc95`
+  );
+  const lat = response.data[0].lat
+  const lon = response.data[0].lon
+
+  //enter lat and lon using weatherAPI
+  const result = await axios.get(
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=843d37c1dd0d39ffe4b87de9a2ebdc95&units=metric`
+  );
+
+  const weatherData = result.data.list.find(item => item.dt_txt == date)
+
+  res.render("webpage2.ejs", {
+    icon: weatherData.weather[0].icon,
+    temp: weatherData.main.temp,
+    weather: weatherData.weather[0].description,
+    humidity: weatherData.main.humidity,
+    cloud: weatherData.clouds.all,
+    wind: weatherData.wind.speed,
+    visibility: weatherData.visibility
+  });
 });
 
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
-
-
-
-//Latitudes and Longitudes to be entered are:
-// latitutde = 35.7796
-// longitude = -78.6382
-
-//website to get the key is: https://www.weatherbit.io/account/dashboard

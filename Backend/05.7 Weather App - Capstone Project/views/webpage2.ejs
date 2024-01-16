@@ -10,8 +10,6 @@
     />
   </head>
   <body>
-    <!-- partial:index.partial.html -->
-
     <div class="bottom-div">
       <div class="x1">
         <div class="cloud"></div>
@@ -34,50 +32,66 @@
       </div>
     </div>
 
-    <!-- partial -->
-
     <div class="top-div">
       <div class="child-div a">
         <h2>Weather Poppy</h2>
-        <span>A Weather Forecast App</span>
-        <div class="child-child-div-a">
+        <span class="sub-heading">Weather Forecast</span>
+        <div class="child-child-div">
           <form action="/submit" method="post">
-            <p>Enter latitude and logitude:</p>
-            <input type="text" placeholder="Latitude" name="lat">
-            <input type="text" placeholder="Longitutde" name="lon">
-            <button>Check</button>
+            <p>
+              City:
+              <input class="city" type="text" name="city" />
+            </p>
+            <p>
+              Country:
+              <input class="country" type="text" name="country" />
+            </p>
+            <p>
+              Date:
+              <select class="date" name="date">
+                <option selected></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+              <span class="message">(Upto 5 days)</span>
+            </p>
+            <button type="submit">Check</button>
           </form>
         </div>
       </div>
+
       <div class="child-div b">
-        <div class="weather cloud-sun-container">
-          <i class="fas fa-cloud innerCloud"></i>
-          <i class="fas fa-sun sun"></i>
-          <span><%=temp%>°C</span>
+        <div class="child-div-1">
+          <div class="img-element">
+            <img src="https://openweathermap.org/img/wn/<%=icon%>@2x.png" />
+            <span class="temp"><%=temp%>°C</span>
+          </div>
+          <p class="weather"><%=weather%></p>
         </div>
 
-        <div class="child-child-div-b">
-          <div class="flex1 flexa">
-            <div class="flexaa">
-              <i class="fas fa-cloud-sun"></i>
-              <i class="fas fa-cloud"></i>
-              <i class="fas fa-wind"></i>
-              <i class="fas fa-cloud-rain"></i>
-            </div>
-            <div class="flexab">
-              <span><%=weather%></span>
-              <span><%= cloud%> okta</span>
-              <span><%=wind%> km/h</span>
-              <span><%=rain%> mm</span>
-            </div>
-          </div>
-
-          <div class="flex2">
-            <span class="place"><%=place%></span>
-            <span class="time"><%=time%></span>
-          </div>
+        <div class="child-div-2">
+          <p>
+            <span class="name">Cloud: </span
+            ><span class="span span1"><%=cloud%> %</span>
+          </p>
+          <p>
+            <span class="name">Wind: </span>
+            <span class="span span2"><%=wind%> m/s</span>
+          </p>
+          <p>
+            <span class="name">Humidity: </span
+            ><span class="span span3"><%=humidity%> %</span>
+          </p>
+          <p>
+            <span class="name">Visibility: </span
+            ><span class="span span4"><%=visibility%> m</span>
+          </p>
         </div>
       </div>
     </div>
+
+    <script src="/script.js"></script>
   </body>
 </html>
