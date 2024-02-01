@@ -12,12 +12,9 @@ function capitalizeFirstLetter(inputs) {
     inputs[i].addEventListener('input', (e) => {
       let inputValue = e.target.value;
       let word = inputValue.split(' ')
-      let words = word.map((item) => {return item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()})
+      let words = word.map((item) => { return item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() })
       inputValue = words.join(' ')
       e.target.value = inputValue;
-      console.log(word)
-      console.log(words)
-      console.log(inputValue)
     })
   }
 }
