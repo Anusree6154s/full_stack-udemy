@@ -1,0 +1,2 @@
+# output
+![img](goal.png)
